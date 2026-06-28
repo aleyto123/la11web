@@ -40,7 +40,7 @@ spring:
             - Path=/api/estados-cita/**
 
 server:
-  port: 8080
+  port: 8090
 
 eureka:
   client:

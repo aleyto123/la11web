@@ -1,7 +1,7 @@
 # Laboratorio: Sistema de Gestion de Citas Medicas
 
 ## Resumen de la solucion
-
+# Alumno: Bellido Rony
 Se implemento una arquitectura de microservicios con Spring Boot para la clinica Salud Integral. La solucion separa el dominio en servicios independientes para pacientes, medicos y citas, ademas de Eureka Server para descubrimiento y API Gateway para centralizar el acceso.
 
 ## Microservicios desarrollados
@@ -20,8 +20,6 @@ Se implemento una arquitectura de microservicios con Spring Boot para la clinica
 - `horarios_medicos`: dia de semana y rango horario del medico.
 - `cita`: fecha, hora, paciente, medico, motivo y estado.
 - `atencion`: diagnostico, tratamiento, observaciones y fecha de registro.
-
-## Pruebas sugeridas en Postman
 
 Importar la coleccion:
 
@@ -45,9 +43,6 @@ Desde la raiz:
 ```bash
 mvn clean test
 ```
-
-Luego ejecutar en este orden:
-
 ```bash
 cd eureka-server
 mvn spring-boot:run
@@ -65,10 +60,3 @@ cd ../api-gateway
 mvn spring-boot:run
 ```
 
-## Conclusiones
-
-1. La arquitectura de microservicios permite separar responsabilidades y mantener cada modulo del sistema de citas de forma independiente.
-2. Eureka facilita el descubrimiento de servicios, evitando depender directamente de direcciones fijas entre microservicios.
-3. El API Gateway simplifica las pruebas porque centraliza las rutas en un solo puerto.
-4. Spring Data JPA reduce el codigo necesario para implementar operaciones CRUD y mantiene la persistencia ordenada.
-5. Las validaciones y el manejo global de excepciones ayudan a devolver respuestas claras cuando faltan datos o se incumplen reglas de negocio.
