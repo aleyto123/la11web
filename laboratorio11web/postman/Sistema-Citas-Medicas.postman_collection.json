@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "Sistema de Gestion de Citas Medicas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar pacientes",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/pacientes"
+      }
+    },
+    {
+      "name": "Crear paciente",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dni\": \"12345678\",\n  \"nombres\": \"Ana\",\n  \"apellidos\": \"Lopez\",\n  \"fechaNacimiento\": \"1998-08-15\",\n  \"sexo\": \"F\",\n  \"telefono\": \"912345678\",\n  \"direccion\": \"Calle Los Olivos 456\",\n  \"correo\": \"ana.lopez@correo.com\",\n  \"estado\": \"A\"\n}"
+        },
+        "url": "http://localhost:8080/api/pacientes"
+      }
+    },
+    {
+      "name": "Listar medicos",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/medicos"
+      }
+    },
+    {
+      "name": "Ver disponibilidad medico",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/medicos/1/disponible?diaSemana=JUEVES&hora=10:30"
+      }
+    },
+    {
+      "name": "Crear cita valida",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fecha\": \"2026-07-02\",\n  \"hora\": \"11:30:00\",\n  \"pacienteId\": 1,\n  \"medicoId\": 1,\n  \"motivo\": \"Dolor de cabeza\",\n  \"estado\": { \"idEstado\": 1 }\n}"
+        },
+        "url": "http://localhost:8080/api/citas"
+      }
+    },
+    {
+      "name": "Consultar cita integrada",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/citas/1/detalle"
+      }
+    },
+    {
+      "name": "Intentar cita duplicada",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fecha\": \"2026-07-02\",\n  \"hora\": \"10:30:00\",\n  \"pacienteId\": 1,\n  \"medicoId\": 1,\n  \"motivo\": \"Control general\",\n  \"estado\": { \"idEstado\": 1 }\n}"
+        },
+        "url": "http://localhost:8080/api/citas"
+      }
+    },
+    {
+      "name": "Cancelar cita",
+      "request": {
+        "method": "PATCH",
+        "url": "http://localhost:8080/api/citas/1/cancelar"
+      }
+    }
+  ]
+}
